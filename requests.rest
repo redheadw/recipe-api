@@ -1,0 +1,86 @@
+@localUrl = http://localhost:8080
+@renderUrl = https://YOUR-RENDER-SERVICE.onrender.com
+
+@recipeId = REPLACE_WITH_RECIPE_ID
+@categoryId = REPLACE_WITH_CATEGORY_ID
+
+### GET all recipes
+GET {{localUrl}}/recipes
+
+### GET recipe by ID
+GET {{localUrl}}/recipes/{{recipeId}}
+
+### POST recipe
+POST {{localUrl}}/recipes
+Content-Type: application/json
+
+{
+  "name": "Chicken Alfredo",
+  "description": "Creamy chicken pasta",
+  "category": "Dinner",
+  "ingredients": [
+    "chicken",
+    "pasta",
+    "cream",
+    "parmesan"
+  ],
+  "instructions": "Cook pasta and combine it with chicken and sauce.",
+  "prepTime": 15,
+  "cookTime": 25,
+  "servings": 4,
+  "difficulty": "Easy"
+}
+
+### PUT recipe
+PUT {{localUrl}}/recipes/{{recipeId}}
+Content-Type: application/json
+
+{
+  "name": "Updated Chicken Alfredo",
+  "description": "Creamy chicken pasta with garlic",
+  "category": "Dinner",
+  "ingredients": [
+    "chicken",
+    "pasta",
+    "cream",
+    "parmesan",
+    "garlic"
+  ],
+  "instructions": "Cook all ingredients and combine.",
+  "prepTime": 20,
+  "cookTime": 25,
+  "servings": 5,
+  "difficulty": "Medium"
+}
+
+### DELETE recipe
+DELETE {{localUrl}}/recipes/{{recipeId}}
+
+### GET all categories
+GET {{localUrl}}/categories
+
+### POST category
+POST {{localUrl}}/categories
+Content-Type: application/json
+
+{
+  "name": "Dinner",
+  "description": "Evening main dishes",
+  "color": "Blue"
+}
+
+### Invalid recipe validation test
+POST {{localUrl}}/recipes
+Content-Type: application/json
+
+{
+  "name": "",
+  "description": "Bad",
+  "category": "",
+  "ingredients": [],
+  "instructions": "",
+  "prepTime": -1,
+  "cookTime": -5,
+  "servings": 0,
+  "difficulty": "Impossible"
+}
