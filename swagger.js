@@ -7,9 +7,10 @@ const doc = {
       "REST API for managing recipes and recipe categories using MongoDB."
   },
 
-  host: "localhost:8080",
+  host: "recipe-api-xrzw.onrender.com",
 
-  schemes: ["http"],
+  schemes: ["https"],
+
 
   tags: [
     {
@@ -93,10 +94,7 @@ const doc = {
 
 const outputFile = "./swagger-output.json";
 
-/*
-  Because server.js is the root file where the Express routes
-  are mounted, Swagger Autogen should scan server.js.
-*/
+
 const endpointsFiles = ["./server.js"];
 
 swaggerAutogen(outputFile, endpointsFiles, doc);
