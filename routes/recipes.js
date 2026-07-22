@@ -69,6 +69,7 @@ router.post(
   #swagger.tags = ["Recipes"]
   #swagger.summary = "Create a new recipe"
   #swagger.description = "Creates a recipe after validating all required fields."
+  #swagger.security = [{ "githubOAuth": [] }]
 
   #swagger.parameters["body"] = {
     in: "body",
@@ -113,6 +114,8 @@ router.put(
   #swagger.tags = ["Recipes"]
   #swagger.summary = "Update a recipe"
   #swagger.description = "Updates a recipe using its MongoDB ObjectId."
+  #swagger.security = [{ "githubOAuth": [] }]
+
 
   #swagger.parameters["id"] = {
     in: "path",
@@ -160,6 +163,7 @@ router.delete(
   #swagger.tags = ["Recipes"]
   #swagger.summary = "Delete a recipe"
   #swagger.description = "Deletes a recipe using its MongoDB ObjectId."
+  #swagger.security = [{ "githubOAuth": [] }]
 
   #swagger.parameters["id"] = {
     in: "path",

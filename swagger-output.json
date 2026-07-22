@@ -24,6 +24,14 @@
   "schemes": [
     "https"
   ],
+  "securityDefinitions": {
+    "githubOAuth": {
+      "type": "oauth2",
+      "authorizationUrl": "https://recipe-api-xrzw.onrender.com/auth/github",
+      "flow": "implicit",
+      "scopes": {}
+    }
+  },
   "paths": {
     "/": {
       "get": {
@@ -423,179 +431,6 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }
-      }
-    }
-  },
-  "definitions": {
-    "RecipeInput": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "example": "Chicken Alfredo"
-        },
-        "description": {
-          "type": "string",
-          "example": "Creamy chicken pasta"
-        },
-        "category": {
-          "type": "string",
-          "example": "Dinner"
-        },
-        "ingredients": {
-          "type": "array",
-          "example": [
-            "chicken",
-            "pasta",
-            "cream",
-            "parmesan"
-          ],
-          "items": {
-            "type": "string"
-          }
-        },
-        "instructions": {
-          "type": "string",
-          "example": "Cook the pasta, prepare the sauce, and combine all ingredients."
-        },
-        "prepTime": {
-          "type": "number",
-          "example": 15
-        },
-        "cookTime": {
-          "type": "number",
-          "example": 25
-        },
-        "servings": {
-          "type": "number",
-          "example": 4
-        },
-        "difficulty": {
-          "type": "string",
-          "example": "Easy"
-        }
-      }
-    },
-    "RecipeResponse": {
-      "type": "object",
-      "properties": {
-        "_id": {
-          "type": "string",
-          "example": "64c285a87db761333e18d1d5"
-        },
-        "name": {
-          "type": "string",
-          "example": "Chicken Alfredo"
-        },
-        "description": {
-          "type": "string",
-          "example": "Creamy chicken pasta"
-        },
-        "category": {
-          "type": "string",
-          "example": "Dinner"
-        },
-        "ingredients": {
-          "type": "array",
-          "example": [
-            "chicken",
-            "pasta",
-            "cream",
-            "parmesan"
-          ],
-          "items": {
-            "type": "string"
-          }
-        },
-        "instructions": {
-          "type": "string",
-          "example": "Cook the pasta, prepare the sauce, and combine all ingredients."
-        },
-        "prepTime": {
-          "type": "number",
-          "example": 15
-        },
-        "cookTime": {
-          "type": "number",
-          "example": 25
-        },
-        "servings": {
-          "type": "number",
-          "example": 4
-        },
-        "difficulty": {
-          "type": "string",
-          "example": "Easy"
-        },
-        "createdBy": {
-          "type": "string",
-          "example": "github-user"
-        }
-      }
-    },
-    "CategoryInput": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "example": "Dinner"
-        },
-        "description": {
-          "type": "string",
-          "example": "Evening main dishes"
-        },
-        "color": {
-          "type": "string",
-          "example": "Blue"
-        }
-      }
-    },
-    "CategoryResponse": {
-      "type": "object",
-      "properties": {
-        "_id": {
-          "type": "string",
-          "example": "64c285a87db761333e18d1d6"
-        },
-        "name": {
-          "type": "string",
-          "example": "Dinner"
-        },
-        "description": {
-          "type": "string",
-          "example": "Evening main dishes"
-        },
-        "color": {
-          "type": "string",
-          "example": "Blue"
-        }
-      }
-    },
-    "ValidationError": {
-      "type": "object",
-      "properties": {
-        "error": {
-          "type": "string",
-          "example": "Validation failed."
-        },
-        "details": {
-          "type": "array",
-          "example": [
-            "A required field is missing."
-          ],
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "ServerError": {
-      "type": "object",
-      "properties": {
-        "error": {
-          "type": "string",
-          "example": "An unexpected server error occurred."
         }
       }
     }
